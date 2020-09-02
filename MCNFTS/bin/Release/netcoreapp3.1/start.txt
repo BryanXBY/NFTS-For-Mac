@@ -1,0 +1,6 @@
+cd C:\Users\bryan\source\repos\MCNFTS\MCNFTS\bin\Release\netcoreapp3.1
+sudo chmod -x list.sh
+sudo chmod 777 list.sh
+sudo chmod - x MCNFTS
+sudo chmod 777 MCNFTS
+sudo ./MCNFTS
