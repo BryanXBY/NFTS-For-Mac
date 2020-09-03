@@ -127,7 +127,7 @@ namespace MCNFTS
 
 
 
-            JBlogin
+          
         }
         /// <summary>
         /// 激活权限，写入文件
@@ -185,9 +185,17 @@ namespace MCNFTS
                             Console.WriteLine("激活权限完成！");
                         }
                         catch {
+                            try
+                            {
+                                Console.WriteLine("激活失败，该系统或已经激活过！尝试追加方式");
+                                StreamWriter sw = new StreamWriter(@"/etc/fstab", true);
+                                sw.WriteLine(rwlist);
+                                sw.Close();
+                            }
+                            catch {
 
-                            Console.WriteLine("激活失败，该系统或已经激活过！");
-
+                                Console.WriteLine("该系统已经启用了NTFS");
+                            }
                         }
 
 
@@ -206,10 +214,21 @@ namespace MCNFTS
                             log.Close();
                             Console.WriteLine("激活权限完成！");
                         }
-                        catch 
-                        
+                        catch
+
                         {
-                            Console.WriteLine("激活失败，该系统或已经激活过！");
+                            try
+                            {
+                                Console.WriteLine("激活失败，该系统或已经激活过！尝试追加方式");
+                                StreamWriter sq = new StreamWriter(@"/etc/fstab", true);
+                                sq.WriteLine(rwlist);
+                                sq.Close();
+                            }
+                            catch {
+
+                                Console.WriteLine("该系统已经启用了NTFS");
+                            }
+
                         }
                 }
 

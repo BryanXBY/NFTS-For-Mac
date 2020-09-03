@@ -10,3 +10,4 @@ C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\MC
 C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\MCNTFS.dll
 C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\MCNTFS.pdb
 C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\MCNTFS.genruntimeconfig.cache
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\MCNTFS.csprojAssemblyReference.cache
