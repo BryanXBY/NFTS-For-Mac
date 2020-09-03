@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vE0EZ/VQDs0/3SXeGr37qVdGiShQEST+g6jRSfxOL5fao1OrqcegkWdGdMn/vzbqP9Agf5DDIfJdM+RoBZiEvQ==",
+  "dgSpecHash": "13C26Zvw3ox9SOO8gsFS17tkRC/1sYF2fO4Xzdi9LrTrFYDy/kEptHNUD8SDRERjioeaGthz4auiCWGwYmlQwg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj",
+  "projectFilePath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bryan\\.nuget\\packages\\microsoft.netcore.app.host.osx-x64\\3.1.7\\microsoft.netcore.app.host.osx-x64.3.1.7.nupkg.sha512"
   ],

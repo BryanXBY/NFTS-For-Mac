@@ -2,6 +2,7 @@
 using System.IO;
 using System.Diagnostics;
 using System.Runtime;
+using System.Net;
 
 namespace MCNFTS
 {
@@ -10,41 +11,23 @@ namespace MCNFTS
         static string ProgrmPath;
         static string NftsName,yesorno;
 
+        static string osid = System.Environment.OSVersion.Platform.ToString();
+        static int sz = Getddnum();
+        static string[] Dname = new string[sz];  //Drivername数组
+        static int Drivernum=-1;
         static void Main(string[] args)
         {
             ProgrmPath = Directory.GetCurrentDirectory();
-            string username = System.Environment.UserName.ToString();
-            bool first = true;
-            string userpd = ProgrmPath +"/start.txt";
-            first = File.Exists(userpd);
-            if (first == true)
-            {
-                //非首次运行直接启动
+
                 start();
                 return;
-            }
-            if (first == false)
-            {
-                //首次运行生成启动脚本
-                Console.WriteLine("初次运行会将在程序根目录生成一个启动命令的记事本，名称为start.txt");
-                Console.WriteLine("你可以打开终端，并复制里面的内容来启动，以防权限不足！");
-                Console.ReadKey();
-                Console.WriteLine(@"本程序完全免费,发布于https://github.com/BryanXBY/NFTS-For-Mac");
-                string meg = "cd " + ProgrmPath + System.Environment.NewLine.ToString();
-                meg = meg+ "sudo chmod -x list.sh" + System.Environment.NewLine.ToString();
-                meg = meg + "sudo chmod 777 list.sh" + System.Environment.NewLine.ToString();
-                meg = meg + "sudo chmod - x MCNFTS" + System.Environment.NewLine.ToString();
-                meg = meg + "sudo chmod 777 MCNFTS" + System.Environment.NewLine.ToString();
-                meg = meg + "sudo ./MCNFTS" ;
-                byte[] data = System.Text.Encoding.Default.GetBytes(meg);
-                FileStream fs = new FileStream(ProgrmPath+"/start.txt", FileMode.Create);
-                fs.Write(data, 0, data.Length);
-                fs.Close();
-                start();
-                return;
-            }
-            
-           
+   
+        }
+        static int Getddnum()
+        {
+            DriveInfo[] allDD = DriveInfo.GetDrives();
+            return allDD.Length;
+
         }
 
         static void start()
@@ -53,10 +36,11 @@ namespace MCNFTS
             Console.WriteLine("         Bryan MacOS NTFS 写入权限获取工具");
             Console.WriteLine("                   ver1.0");
             Console.WriteLine(@"    https://github.com/BryanXBY/NFTS-For-Mac");
+            Console.WriteLine("                  本机共有磁盘数："+sz.ToString());
             Console.ResetColor(); //将控制台的前景色和背景色设为默认值
             Console.WriteLine(" ");
             Console.WriteLine("==========================================================");
-            Console.Write("请输入NFTS的");
+            Console.Write("请输入NTFS的");
             Console.ForegroundColor = ConsoleColor.Cyan; //
             Console.Write("磁盘名称（卷标）");
             Console.ResetColor();
@@ -92,18 +76,7 @@ namespace MCNFTS
                 Console.WriteLine(" ");
                 Console.WriteLine("系统存在下列卷标(黄色字体部分)：");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                string msgout = listdoit();
-                if (msgout != "error")
-                {
-                    Console.WriteLine(msgout);
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("如果你有看到类似No such file or directory的提示！");
-                    Console.WriteLine("这说明载入shell出错，请将程序目录下的list.sh复制到:" + ProgrmPath + " / 下。\n或者复制程序目录下的start.txt，然后在终端中粘贴并按回车使用！");
-                    Console.ResetColor();
-                }
-                else { 
-                Console.WriteLine("当前系统并不需要本程序即可支持NFTS格式");
-                }
+                GetDrive();
                 Console.ResetColor();
                 Console.ReadKey();
                     start();
@@ -130,7 +103,23 @@ namespace MCNFTS
                 else
 
                 {
-                    JBlogin();
+                    if(NftsName !="")
+                    {
+                        if (osid == "Win32NT")
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed; //
+                            Console.WriteLine("\n\n\n\n当前系统并不需要本程序，本程序只针对OSX和Linux！\n\n\n\n");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                            start();
+                            return;
+                        }
+                        string a1 = "LABEL=" + NftsName + " none ntfs rw,auto,nobrowse";
+                        JBlogin(a1);
+
+                    }
+                    Console.ReadKey();
+                    start();
                     return;
                 }
 
@@ -139,7 +128,7 @@ namespace MCNFTS
 
         }
 
-        static void JBlogin()
+        static void JBlogin(string sss)
         {
             Console.ForegroundColor = ConsoleColor.Blue; //
             Console.WriteLine("                 激活权限");
@@ -149,7 +138,7 @@ namespace MCNFTS
             Console.ReadKey();
             bool okme = false;
             bool fileok = File.Exists(ProgrmPath + "/log");
-            string rwlist = "LABEL=" + NftsName + " none ntfs rw,auto,nobrowse";
+            string rwlist = sss;
             if (fileok == true)
             {
                 //文档存在
@@ -185,8 +174,8 @@ namespace MCNFTS
                     FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Open);
                     log.Write(data2, 0, data2.Length);
                     log.Close();
-                    Console.WriteLine("激活权限完成！");
-                    Console.ReadKey();
+                    Console.WriteLine("激活"+NftsName+"权限完成！");
+                   
 
                 }
                 else
@@ -198,8 +187,7 @@ namespace MCNFTS
                     FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Create);
                     log.Write(data, 0, data.Length);
                     log.Close();
-                    Console.WriteLine("激活权限完成！");
-                    Console.ReadKey();
+                    Console.WriteLine("激活" + NftsName + "权限完成！");
 
                 }
 
@@ -207,8 +195,6 @@ namespace MCNFTS
 
             }
 
-
-            start();
             return;
         }
         static void help2()
@@ -223,14 +209,16 @@ namespace MCNFTS
             if (yesorno == "Y" || yesorno == "y")
             {
                 NftsName = "help";
-                JBlogin();
+                string a1 = "LABEL=" + NftsName + " none ntfs rw,auto,nobrowse";
+                JBlogin(a1);
                 return;
 
             }
             if (yesorno == "N" || yesorno == "n")
             {
                 NftsName = "#help";
-                JBlogin();
+                string a1 = "LABEL=" + NftsName + " none ntfs rw,auto,nobrowse";
+                JBlogin(a1);
                 return;
             }
             if (yesorno != "Y" || yesorno != "N" || yesorno != "y" || yesorno != "n")
@@ -244,7 +232,7 @@ namespace MCNFTS
 
         static string listdoit()
         {
-            string osid = System.Environment.OSVersion.Platform.ToString();
+            
             if (osid == "Win32NT")
             {
                 return "error";
@@ -291,7 +279,9 @@ namespace MCNFTS
             if (cintxit == "exit")
             {
                 NftsName = "exit";
-                JBlogin();
+
+                string a1 = "LABEL=" + NftsName + " none ntfs rw,auto,nobrowse";
+                JBlogin(a1);
                 return;
             }
         }
@@ -299,66 +289,113 @@ namespace MCNFTS
         static void auto()
         {
             Console.WriteLine("自动处理中！");
-            string diskmenu = listdoit();
-            if (diskmenu == "error")
+            string a1=" ";
+            string osid = System.Environment.OSVersion.Platform.ToString();
+            if (osid == "Win32NT")
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed; //
                 Console.WriteLine("\n\n\n\n当前系统并不需要本程序，本程序只针对OSX和Linux！\n\n\n\n");
                 Console.ResetColor();
-                Console.ReadKey();
+                Console.ReadKey(); 
                 start();
                 return;
             }
-            diskmenu = diskmenu.Replace("Macintosh HD", "");
-            if (diskmenu != "")
+            GetDrive();
+
+            for (int counter = 0; counter <= Drivernum; counter++)
             {
-                int allnum = diskmenu.IndexOf(" ");
-                if (allnum == -1)
+                Console.WriteLine("正在处理磁盘>id:" + counter.ToString() + "  name:" + Dname[counter]);
+                if (Dname[counter] == "该磁盘没有卷标")
                 {
-                    Console.WriteLine("发现磁盘：" + diskmenu);
-                    Console.ReadKey();
-                    diskmenu= diskmenu.Replace(System.Environment.NewLine.ToString(), "");
-                    NftsName = diskmenu;
-                    if (diskmenu != "")
-                    {
-                        JBlogin();
-                    }
-                    else 
-
-                    {
-                        Console.WriteLine("请插入U盘后重试");
-                        Console.ReadKey();
-                    }
-
-                    return;
-                }if (allnum != -1)
-                {
-                    Console.WriteLine("多个磁盘请人工操作，以免录入出错！");
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("如果你有看到类似No such file or directory的提示！");
-                    Console.WriteLine("这说明载入shell出错，请将程序目录下的list.sh复制到:" + ProgrmPath + " / 下。\n或者复制程序目录下的start.txt，然后在终端中粘贴并按回车使用！");
+                    Console.WriteLine("磁盘ID：" + counter.ToString() + "处理失败，请设置一个卷标后再试。");
                     Console.ResetColor();
-                    Console.ReadKey();
-                    Console.WriteLine(diskmenu);
-                    start();
-                    return;
+                }
+                if (Dname[counter] != "该磁盘没有卷标")
+                {
+                    if (a1 == " ")
+                    {
+                        a1 = "LABEL=" + Dname[counter] + " none ntfs rw,auto,nobrowse";
+                    }
+                    else
+                    { 
+                        a1= a1+ System.Environment.NewLine.ToString()+ "LABEL=" + Dname[counter] + " none ntfs rw,auto,nobrowse";
+                    }
                 }
 
+            }
 
-            }
-            else
-            {
-                Console.WriteLine("未检测到除了Macintosh HD外的其它磁盘");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("如果你有看到类似No such file or directory的提示！");
-                Console.WriteLine("这说明载入shell出错，请将程序目录下的list.sh复制到:" + ProgrmPath + " / 下。\n或者复制程序目录下的start.txt，然后在终端中粘贴并按回车使用！");
-                Console.ResetColor();
-                Console.ReadKey();
-            }
+            JBlogin(a1);
+            Console.WriteLine("\n\n\n\n任务处理完成！\n\n\n\n");
+            Console.ReadKey();
+            Console.WriteLine("执行任务记录如下：");
+            Console.WriteLine(a1);
+            Console.WriteLine("按任意键回到主菜单");
+            Console.ReadKey();
             start();
             return;
 
         }
+        /// <summary>
+        /// 获取磁盘信息
+        /// </summary>
+        static void GetDrive()
+        {
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("Drive {0}", d.Name);
+                Console.WriteLine("  Drive type: {0}", d.DriveType);
+                Console.ResetColor();
+                if (d.IsReady == true)
+                {
+                    string ddname = d.VolumeLabel.ToString();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("  Volume label（卷标）: {0}", d.VolumeLabel);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("  File system（磁盘格式）: {0}", d.DriveFormat);
+                    if (d.DriveFormat.ToString()=="NTFS")
+                    {
+                        Drivernum = Drivernum + 1;
+                        if (ddname == "")
+                        {
+                            ddname = "该磁盘没有卷标";
+                            Dname[Drivernum] = ddname;
+                        }
+                        Dname[Drivernum] = ddname ;
+
+                    }
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine(
+                        "  Available space to current user:{0, 15} bytes",
+                        d.AvailableFreeSpace);
+
+                    Console.WriteLine(
+                        "  Total available space:          {0, 15} bytes",
+                        d.TotalFreeSpace);
+
+                    Console.WriteLine(
+                        "  Total size of drive:            {0, 15} bytes ",
+                        d.TotalSize);
+                    Console.ResetColor();
+                }
+              
+            }
+            if (Drivernum >= 0)
+            {
+                int allnum = Drivernum + 1;
+                Console.WriteLine("一共找到：" + allnum.ToString() + "个NTFS的磁盘，分别如下：");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                for (int counter = 0; counter <= Drivernum ; counter++)
+                {
+                    Console.WriteLine(">id:"+counter.ToString()+"  name:"+Dname[counter]);
+                }
+                Console.ResetColor();
+            }
+        }
+
 
         //没有下文后 程序会退出，所以放最后面！
         static void over()

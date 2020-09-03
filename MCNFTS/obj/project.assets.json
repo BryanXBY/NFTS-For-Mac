@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj",
+      "projectUniqueName": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
       "projectName": "MCNFTS",
-      "projectPath": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj",
+      "projectPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
       "packagesPath": "C:\\Users\\bryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\obj\\",
+      "outputPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

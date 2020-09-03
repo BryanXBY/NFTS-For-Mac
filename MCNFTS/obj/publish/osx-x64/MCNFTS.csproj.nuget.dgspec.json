@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj": {}
+    "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj": {
+    "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj",
+        "projectUniqueName": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
         "projectName": "MCNFTS",
-        "projectPath": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\MCNFTS.csproj",
+        "projectPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
         "packagesPath": "C:\\Users\\bryan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bryan\\source\\repos\\MCNFTS\\MCNFTS\\obj\\publish\\osx-x64\\",
+        "outputPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\obj\\publish\\osx-x64\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
