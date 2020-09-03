@@ -126,8 +126,13 @@ namespace MCNFTS
             }
 
 
-        }
 
+            JBlogin
+        }
+        /// <summary>
+        /// 激活权限，写入文件
+        /// </summary>
+        /// <param name="sss">待写入的数据</param>
         static void JBlogin(string sss)
         {
             if(sss != "")
