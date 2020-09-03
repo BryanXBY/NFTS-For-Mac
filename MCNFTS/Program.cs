@@ -130,11 +130,12 @@ namespace MCNFTS
 
         static void JBlogin(string sss)
         {
+            if(sss != "")
+            {
             Console.ForegroundColor = ConsoleColor.Blue; //
             Console.WriteLine("                 激活权限");
             Console.WriteLine(" ");
             Console.ResetColor();
-            Console.WriteLine("正在激活卷标：" + NftsName + "的写入权限！");
             Console.ReadKey();
             bool okme = false;
             bool fileok = File.Exists(ProgrmPath + "/log");
@@ -156,7 +157,7 @@ namespace MCNFTS
 
             if (okme == true)
             {
-                Console.WriteLine("已经为" + NftsName + "添加过写入权限！");
+                Console.WriteLine("已经添加过写入权限！");
                 Console.ReadKey();
             } else
             {
@@ -174,7 +175,7 @@ namespace MCNFTS
                     FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Open);
                     log.Write(data2, 0, data2.Length);
                     log.Close();
-                    Console.WriteLine("激活"+NftsName+"权限完成！");
+                    Console.WriteLine("激活权限完成！");
                    
 
                 }
@@ -187,7 +188,7 @@ namespace MCNFTS
                     FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Create);
                     log.Write(data, 0, data.Length);
                     log.Close();
-                    Console.WriteLine("激活" + NftsName + "权限完成！");
+                    Console.WriteLine("激活权限完成！");
 
                 }
 
@@ -195,6 +196,8 @@ namespace MCNFTS
 
             }
 
+            return;
+            }
             return;
         }
         static void help2()
@@ -301,7 +304,6 @@ namespace MCNFTS
                 return;
             }
             GetDrive();
-
             for (int counter = 0; counter <= Drivernum; counter++)
             {
                 Console.WriteLine("正在处理磁盘>id:" + counter.ToString() + "  name:" + Dname[counter]);
@@ -354,8 +356,8 @@ namespace MCNFTS
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("  Volume label（卷标）: {0}", d.VolumeLabel);
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("  File system（磁盘格式）: {0}", d.DriveFormat);
-                    if (d.DriveFormat.ToString()=="NTFS")
+                    Console.WriteLine("  File system（磁盘格式）: {0}", d.DriveFormat); 
+                    if (d.DriveFormat.ToString()=="NTFS" || d.DriveFormat.ToString() == "msdos" || d.DriveFormat.ToString() == "Windows_NTFS")
                     {
                         Drivernum = Drivernum + 1;
                         if (ddname == "")

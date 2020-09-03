@@ -7,6 +7,9 @@
     <Authors>BryanXu</Authors>
     <Copyright>sbary@foxmail.com</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>Bryan.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 </Project>
