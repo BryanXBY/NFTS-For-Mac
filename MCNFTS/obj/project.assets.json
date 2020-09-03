@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
-      "projectName": "MCNFTS",
-      "projectPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNFTS.csproj",
+      "projectUniqueName": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNTFS.csproj",
+      "projectName": "MCNTFS",
+      "projectPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\MCNTFS.csproj",
       "packagesPath": "C:\\Users\\bryan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\bryan\\Documents\\GitHub\\NFTS-For-Mac\\MCNFTS\\obj\\",
       "projectStyle": "PackageReference",
