@@ -157,7 +157,7 @@ namespace MCNFTS
 
             if (okme == true)
             {
-                Console.WriteLine("已经添加过写入权限！");
+                Console.WriteLine("已经添加过写入权限，请不要重复添加！");
                 Console.ReadKey();
             } else
             {
