@@ -363,6 +363,8 @@ namespace MCNFTS
                         if (ddname == "")
                         {
                             ddname = "该磁盘没有卷标";
+                            ddname = ddname.Replace("/Volumes/","");
+                            ddname = ddname.Replace(" ", @"\040");
                             Dname[Drivernum] = ddname;
                         }
                         Dname[Drivernum] = ddname ;
