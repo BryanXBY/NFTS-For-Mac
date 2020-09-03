@@ -1,0 +1,12 @@
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\bin\Release\netcoreapp3.1\osx-x64\MCNTFS
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\bin\Release\netcoreapp3.1\osx-x64\MCNTFS.deps.json
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\bin\Release\netcoreapp3.1\osx-x64\MCNTFS.runtimeconfig.json
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\bin\Release\netcoreapp3.1\osx-x64\MCNTFS.runtimeconfig.dev.json
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\bin\Release\netcoreapp3.1\osx-x64\MCNTFS.dll
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\bin\Release\netcoreapp3.1\osx-x64\MCNTFS.pdb
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\osx-x64\MCNTFS.AssemblyInfoInputs.cache
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\osx-x64\MCNTFS.AssemblyInfo.cs
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\osx-x64\MCNTFS.csproj.CoreCompileInputs.cache
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\osx-x64\MCNTFS.dll
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\osx-x64\MCNTFS.pdb
+C:\Users\bryan\Documents\GitHub\NFTS-For-Mac\MCNFTS\obj\Release\netcoreapp3.1\osx-x64\MCNTFS.genruntimeconfig.cache

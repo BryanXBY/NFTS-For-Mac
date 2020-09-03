@@ -1,0 +1,24 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1/osx-x64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {},
+    ".NETCoreApp,Version=v3.1/osx-x64": {
+      "MCNTFS/1.0.0": {
+        "runtime": {
+          "MCNTFS.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MCNTFS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
