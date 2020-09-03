@@ -164,32 +164,48 @@ namespace MCNFTS
 
                 if (fileok == true)
                 {
-                    string rss = System.IO.File.ReadAllText(ProgrmPath + "/log");
-                    rss = rss + System.Environment.OSVersion.Platform.ToString(); 
-                    rss= rss + rwlist;
-                    byte[] data = System.Text.Encoding.Default.GetBytes(rwlist);
-                    FileStream fs = new FileStream(@"/etc/fstab", FileMode.Create);
-                    fs.Write(data, 0, data.Length);
-                    fs.Close();
-                    byte[] data2 = System.Text.Encoding.Default.GetBytes(rss);
-                    FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Open);
-                    log.Write(data2, 0, data2.Length);
-                    log.Close();
-                    Console.WriteLine("激活权限完成！");
-                   
+                        try
+                        {
+                            string rss = System.IO.File.ReadAllText(ProgrmPath + "/log");
+                            rss = rss + System.Environment.OSVersion.Platform.ToString();
+                            rss = rss + rwlist;
+                            byte[] data = System.Text.Encoding.Default.GetBytes(rwlist);
+                            FileStream fs = new FileStream(@"/etc/fstab", FileMode.Create);
+                            fs.Write(data, 0, data.Length);
+                            fs.Close();
+                            byte[] data2 = System.Text.Encoding.Default.GetBytes(rss);
+                            FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Open);
+                            log.Write(data2, 0, data2.Length);
+                            log.Close();
+                            Console.WriteLine("激活权限完成！");
+                        }
+                        catch {
+
+                            Console.WriteLine("激活失败，该系统或已经激活过！");
+
+                        }
+
+
 
                 }
                 else
                 {
-                    byte[] data = System.Text.Encoding.Default.GetBytes(rwlist);
-                    FileStream fs = new FileStream(@"/etc/fstab", FileMode.Create);
-                    fs.Write(data, 0, data.Length);
-                    fs.Close();
-                    FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Create);
-                    log.Write(data, 0, data.Length);
-                    log.Close();
-                    Console.WriteLine("激活权限完成！");
-
+                        try
+                        {
+                            byte[] data = System.Text.Encoding.Default.GetBytes(rwlist);
+                            FileStream fs = new FileStream(@"/etc/fstab", FileMode.Create);
+                            fs.Write(data, 0, data.Length);
+                            fs.Close();
+                            FileStream log = new FileStream(ProgrmPath + "/log", FileMode.Create);
+                            log.Write(data, 0, data.Length);
+                            log.Close();
+                            Console.WriteLine("激活权限完成！");
+                        }
+                        catch 
+                        
+                        {
+                            Console.WriteLine("激活失败，该系统或已经激活过！");
+                        }
                 }
 
 
