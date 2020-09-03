@@ -12,26 +12,8 @@ cd Downloads
 
 cd MCNFTS
 
-sudo chmod -x list.sh
-
-sudo chmod 777 list.sh
-
 sudo chmod -x MCNFTS
 
 sudo chmod 777 MCNFTS
 
-copy ./lish.sh /Users/$USER/lish.sh
-
-cd /Users/$USER/
-
-sudo chmod -x list.sh
-
-sudo chmod 777 list.sh
-
-cd Downloads
-
-cd MCNFTS
-
 sudo ./MCNFTS
-
-注：因为第二次运行程序，启动目录会被自动修正为 /Users/$USER 所以会copy一份过去。
